@@ -1,0 +1,11 @@
+To add a user in Active Directory you must have administrative rights. First open Active Directory Users and Computers by pressing Windows key and R, then type dsa.msc and press Enter. In the window that opens, find the organizational unit where you want to create the new user. Right click the unit and choose New, then User. Enter the first name, last name and the logon name for the user, for example j.doe. Click Next and set a password for the account. Confirm the password and choose whether the user must change the password at the next logon. Click Next and then Finish to create the user.
+After the user has been created, open its properties to make sure the information is correct. You can add the user to the right security groups if needed, for example Domain Users or IT Staff. Always place users in the right organizational unit so that they receive the correct group policies.
+
+
+How to delete a user in Active Directory
+
+To delete a user in Active Directory you must have administrative rights. Open Active Directory Users and Computers by pressing Windows key and R, then type dsa.msc and press Enter. Find the organizational unit that contains the user you want to delete. Right click the user account and select Delete. Confirm the deletion when prompted. The user account will be permanently removed from Active Directory.
+
+How to change the password in Microsoft Active Directory
+
+To change a user password, open Active Directory Users and Computers and locate the user. Right click the account and select Reset Password. Enter the new password and confirm it. You can also choose whether the user must change the password at next logon. Click OK to apply the change. The new password will take effect immediately and can be used for login.
