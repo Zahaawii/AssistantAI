@@ -12,17 +12,18 @@ At its core, it connects to a **ChromaDB (Cloud)** instance, allowing document s
 ✅ Connected to **ChromaDB (Cloud)**  
 ✅ CLI interface allows prompting via terminal — queries are sent to ChromaDB and responses are generated  
 ✅ Supports **document upload and storage** within ChromaDB for contextual responses  
+✅ **Frontend implemented** — users can now chat directly with the bot through a web interface
 
 ---
 
-## 🧩 Next Step: Frontend Development
+## 🧩 Next Step: File Upload via Frontend
 
-The upcoming milestone is to build a **web-based frontend** that enables users to:
-- Upload documents directly through the browser  
-- Ask questions and view answers in real-time  
-- Display stored documents and query history  
+The next major feature is adding a **file upload button** in the web interface that allows users to:
+- Open a window and select documents to upload  
+- Store those documents automatically in the ChromaDB database  
+- Use the uploaded content as additional knowledge for future queries  
 
-This interface will bridge the backend and provide a simple way to interact with the assistant visually.
+This will fully connect the backend knowledge base to the frontend user experience.
 
 ---
 
@@ -40,19 +41,19 @@ Below are some of the references and documentation used while building this proj
 - [Visual Studio Code: Node.js Setup](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)  
 - [VS Code: TypeScript Compilation](https://code.visualstudio.com/docs/typescript/typescript-compiling)  
 - [Docker Deployment Guide for Chroma](https://docs.trychroma.com/guides/deploy/docker?lang=typescript)  
-- [Medium: Building a RAG System with Gemini and ChromaDB](https://medium.com/data-on-cloud-genai-data-science-and-data/building-a-rag-system-with-gemini-and-chromadb-6ead6452bcf5)
-- https://www.w3schools.com/nodejs/nodejs_rest_api.asp
-- https://expressjs.com/en/resources/middleware/cors.html
-- https://www.geeksforgeeks.org/node-js/how-to-handle-form-data-in-express/
-- https://www.geeksforgeeks.org/node-js/how-http-post-request-work-in-node-js/
-
+- [Medium: Building a RAG System with Gemini and ChromaDB](https://medium.com/data-on-cloud-genai-data-science-and-data/building-a-rag-system-with-gemini-and-chromadb-6ead6452bcf5)  
+- [W3Schools: Node.js REST API](https://www.w3schools.com/nodejs/nodejs_rest_api.asp)  
+- [Express.js CORS Middleware](https://expressjs.com/en/resources/middleware/cors.html)  
+- [GeeksforGeeks: Handling Form Data in Express](https://www.geeksforgeeks.org/node-js/how-to-handle-form-data-in-express/)  
+- [GeeksforGeeks: How HTTP POST Requests Work in Node.js](https://www.geeksforgeeks.org/node-js/how-http-post-request-work-in-node-js/)  
 
 ---
 
 ## 🚧 Project Status
 
-This project is **actively under development**.  
-Backend functionality is working — frontend integration is the next big step.
+The project is **actively under development**.  
+The **backend and frontend chat interface** are now functional — enabling real-time question-answer interactions.  
+Next up: **document upload from the browser** and improved database integration.
 
 Stay tuned for updates!
 

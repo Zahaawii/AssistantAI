@@ -27,19 +27,16 @@ form?.addEventListener("submit", async (e) => {
 
         const data = await res.text();
         
-    // The section below is generated with chat gpt as I frontend is not my strong side
     const userMsg = document.createElement("div");
     userMsg.className = "chat-message user-message";
     userMsg.textContent = question.text;
     chatWindow.appendChild(userMsg);
 
-    // Also here
     const botMsg = document.createElement("div");
     botMsg.className = "chat-message bot-message";
     botMsg.textContent = data;
     chatWindow.appendChild(botMsg);
 
-    // And here
     form.reset();
 
     // Scroll to bottom
