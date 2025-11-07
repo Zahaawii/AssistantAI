@@ -4,7 +4,7 @@ import { GoogleGenAI } from "@google/genai";
 import express from "express";
 import cors from "cors";
 
-//Implemeneting Express to make a controller, so users can access it.
+//Implemeneting Express to make a controller, so users can give request to the backend.
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
@@ -20,13 +20,15 @@ const client = new CloudClient({
   database: 'Test'
 });
 
+
+//This function is gemnins api function to embed data to vector
 const embedder = new GoogleGeminiEmbeddingFunction({
   apiKey: process.env.GOOGLE_API_KEY,
 });
 
 const collection = await client.getOrCreateCollection({
   name: "test_api",
-  embeddingFunction: embedder,
+  embeddingFunction: embedder, // <- here we use the google api
 })
 
 let questionAsked = "";
@@ -37,6 +39,7 @@ The section below is where the magic happens.
 We have a post controller that takes the users input from our html (via JS fetch) and sends it to the backend, which then sends it back.
 It could have been solved with a webclient too, but this works perfect 
 */
+
 
 //Error handling so that if Gemini breaks or something out of our control happens, it will pop up with a customized error
 app.use((err, req, res, next) => {
