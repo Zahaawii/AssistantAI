@@ -47,6 +47,17 @@ body {
   overflow: hidden;
 }
 
+textarea {
+  min-height: 40px;
+  max-height: 200px;
+  resize: none;
+  overflow-y: hidden;
+  line-height: 1.5;
+  padding: 8px 12px;
+  transition: height 0.1s ease;
+  text-align: left;
+}
+
 /* Inner wrapper */
 .wrapper {
   display: flex;
@@ -107,6 +118,7 @@ body {
   gap: 1rem;
   width: 100%;
   max-width: 700px;
+  align-items: flex-end; 
 }
 
 .user_question {
@@ -126,21 +138,22 @@ body {
   max-height: 150px;       
 }
 
-button {
-  padding: 10px 20px;
+.btn {
+  width: 80px;
+  height: 40px;
+  min-height: 40px;
   background-color: transparent;
   border: 1px solid var(--accent);
   color: var(--accent);
   border-radius: var(--radius);
   cursor: pointer;
   transition: 0.2s;
+  flex-shrink: 0;
+  align-self: auto;
 }
 
-button:hover {
+.btn:hover {
   background-color: var(--accent);
   color: var(--bg);
 }
 
-textarea {
-    text-align: left;
-}
