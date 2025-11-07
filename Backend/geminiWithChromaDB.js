@@ -38,13 +38,31 @@ We have a post controller that takes the users input from our html (via JS fetch
 It could have been solved with a webclient too, but this works perfect 
 */
 
+//Error handling so that if Gemini breaks or something out of our control happens, it will pop up with a customized error
+app.use((err, req, res, next) => {
+  const status = err.status || 500;
+
+  if (status >= 400 && status < 500) {
+    return res.status(status).json({
+      message: "Something went wrong! Please try again or wait a few minutes."
+    });
+  }
+
+  if (status >= 500 && status < 600) {
+    return res.status(status).json({
+      message: "Something went wrong! Please try again or wait a few minutes."
+    });
+  }
+  res.status(status).json({ message: "Unexpected error." });
+});
+
 app.get('/', (req, res) => {
   res.sendFile('index.html', { root: '/Users/zahaawii/IdeaProjects/personalChatBotJS/'});
 });
 
 
 //Takes the users question from our index.html & browser.js and sends it to the backend
-app.post('/api/question', async (req, res) => {
+app.post('/api/question', async (req, res, next) => {
   console.log("Entering the POST request");
   questionAsked = req.body.text;
   console.log("POST request generated:");
@@ -57,7 +75,8 @@ app.post('/api/question', async (req, res) => {
     nResults: 5,
   });
 
-
+    //Generating the query received from the database and add it to the question asked to the LLM with the context from the database
+  try {
   const content = [
     {
       text:
@@ -97,6 +116,12 @@ app.post('/api/question', async (req, res) => {
   });
   res.send(response.text);
   console.log(response.text);
+  }
+  //Trying to catch errors so the user wont see unnecessary things
+  catch(err) {
+    console.log("You are here now");
+    next(err);
+  }
 });
 
 
