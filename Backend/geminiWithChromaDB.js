@@ -7,7 +7,7 @@ import cors from "cors";
 //Implemeneting Express to make a controller, so users can give request to the backend.
 const app = express();
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static('../'));
 app.use(cors());
 app.use(express.json());
 
