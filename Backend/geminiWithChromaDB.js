@@ -3,9 +3,15 @@ import { GoogleGeminiEmbeddingFunction } from "@chroma-core/google-gemini";
 import { GoogleGenAI } from "@google/genai";
 import express from "express";
 import cors from "cors";
+import path from "path";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
 
 //Implemeneting Express to make a controller, so users can give request to the backend.
 const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('../'));
 app.use(cors());
@@ -60,7 +66,7 @@ app.use((err, req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-  res.sendFile('index.html', { root: '/Users/zahaawii/IdeaProjects/personalChatBotJS/'});
+  res.sendFile(path.join(__dirname, '../index.html'))
 });
 
 
@@ -143,7 +149,7 @@ app.post('/api/database', async (req, res) => {
 }
 })
 
-app.listen(8080, () => {
-  console.log('REST API server running on port 8080');
+app.listen(8181, () => {
+  console.log('REST API server running on port 8181');
 });
 

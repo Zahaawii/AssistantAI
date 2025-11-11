@@ -46,6 +46,8 @@ Below are some of the references and documentation used while building this proj
 - [Express.js CORS Middleware](https://expressjs.com/en/resources/middleware/cors.html)  
 - [GeeksforGeeks: Handling Form Data in Express](https://www.geeksforgeeks.org/node-js/how-to-handle-form-data-in-express/)  
 - [GeeksforGeeks: How HTTP POST Requests Work in Node.js](https://www.geeksforgeeks.org/node-js/how-http-post-request-work-in-node-js/)  
+- https://www.geeksforgeeks.org/node-js/how-to-fix-referenceerror-dirname-is-not-defined-in-es-module-scope-in-javascript/
+- https://www.digitalocean.com/community/tutorials/use-expressjs-to-deliver-html-files
 
 ---
 
