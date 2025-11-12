@@ -49,6 +49,7 @@ Below are some of the references and documentation used while building this proj
 - https://www.geeksforgeeks.org/node-js/how-to-fix-referenceerror-dirname-is-not-defined-in-es-module-scope-in-javascript/
 - https://www.digitalocean.com/community/tutorials/use-expressjs-to-deliver-html-files
 - https://www.warp.dev/terminus/docker-compose-env-file
+- https://httpd.apache.org/docs/2.4/vhosts/examples.html
 
 ---
 
