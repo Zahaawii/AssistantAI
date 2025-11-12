@@ -13,8 +13,8 @@ services:
       context: .
     environment:
       NODE_ENV: production
-      CHROMA_API_KEY: $CHROMADB_API_KEY
-      GEMINI_API_KEY=: $GOOGLE_API_KEY
+      CHROMA_API_KEY: ${CHROMADB_API_KEY}
+      GEMINI_API_KEY: ${GOOGLE_API_KEY}
     ports:
       - 8181:8181
     volumes: 
