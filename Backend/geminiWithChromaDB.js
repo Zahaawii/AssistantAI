@@ -37,17 +37,16 @@ const collection = await client.getOrCreateCollection({
   embeddingFunction: embedder, // <- here we use the google api
 })
 
-let questionAsked = "";
-
-
 /*
 The section below is where the magic happens.
 We have a post controller that takes the users input from our html (via JS fetch) and sends it to the backend, which then sends it back.
 It could have been solved with a webclient too, but this works perfect 
 */
 
+let questionAsked = "";
 
-//Error handling so that if Gemini breaks or something out of our control happens, it will pop up with a customized error
+
+//Global error handling so that if Gemini breaks or something out of our control happens, it will pop up with a customized error
 app.use((err, req, res, next) => {
   const status = err.status || 500;
 
@@ -65,6 +64,7 @@ app.use((err, req, res, next) => {
   res.status(status).json({ message: "Unexpected error." });
 });
 
+//Makes the root url be index.html
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'))
 });
@@ -123,13 +123,15 @@ app.post('/api/question', async (req, res, next) => {
       },
     }
   });
+  
   res.send(response.text);
   console.log(response.text);
   }
   //Trying to catch errors so the user wont see unnecessary things
   catch(err) {
-    console.log("You are here now");
-    next(err);
+    console.log("You are in the error catch now: ");
+    console.log(err);
+    res.send("There has been an error, try again later");
   }
 });
 
@@ -146,6 +148,7 @@ app.post('/api/database', async (req, res) => {
   res.send(`The KBA has been stored in the database with ${req.body.id}`)
 } catch (err) {
     console.error(err);
+    res.send("There has been an error with uploading the text. Save the text and refresh the page");
 }
 })
 
