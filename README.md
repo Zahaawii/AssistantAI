@@ -1,35 +1,33 @@
 # 🧠 Personal Assistant LLM
 
-This project aims to build a **lightweight, local-first Large Language Model (LLM)**–powered assistant that can respond intelligently using **user-provided data**.  
-Think of it as your own **context-aware personal assistant** — one that learns from the documents you give it.
+This project delivers a **lightweight, Gemini wrapper - Large Language Model (LLM)**–powered assistant that responds intelligently using **user-provided data**.  
+It functions as a **personal knowledge assistant**, capable of learning from and reasoning over the documents you upload.
 
-At its core, it connects to a **ChromaDB (Cloud)** instance, allowing document storage, vector embeddings, and retrieval-augmented generation (RAG) queries.
+The system is fully integrated with **ChromaDB (Cloud)** for document storage, vector embeddings, and retrieval-augmented generation (RAG) queries — now complete with a functional frontend and live deployment.
 
 ---
 
 ## ⚙️ Current Functionality
 
 ✅ Connected to **ChromaDB (Cloud)**  
-✅ CLI interface allows prompting via terminal — queries are sent to ChromaDB and responses are generated  
+✅ CLI interface for terminal-based queries — prompts are sent to ChromaDB, and responses are returned intelligently  
 ✅ Supports **document upload and storage** within ChromaDB for contextual responses  
-✅ **Frontend implemented** — users can now chat directly with the bot through a web interface
+✅ **Frontend implemented** — users can now chat directly with the bot through a web interface  
+✅ **File upload via browser** — users can upload new articles/files that are stored in the database and used to improve the assistant’s knowledge  
+✅ **Deployed live** — available directly on the developer’s webpage
 
 ---
 
-## 🧩 Next Step: File Upload via Frontend
+## 🌐 Live Deployment
 
-The next major feature is adding a **file upload button** in the web interface that allows users to:
-- Open a window and select documents to upload  
-- Store those documents automatically in the ChromaDB database  
-- Use the uploaded content as additional knowledge for future queries  
-
-This will fully connect the backend knowledge base to the frontend user experience.
+The full project is live and accessible through the developer’s personal website.  
+The assistant can be chatted with directly, and new articles can be uploaded to expand its knowledge base.
 
 ---
 
 ## 🔗 Useful Resources
 
-Below are some of the references and documentation used while building this project:
+These references were used throughout the project’s development:
 
 - [Google AI Studio](https://aistudio.google.com/)  
 - [Gemini API: Document Processing (JavaScript)](https://ai.google.dev/gemini-api/docs/document-processing#javascript)  
@@ -46,26 +44,28 @@ Below are some of the references and documentation used while building this proj
 - [Express.js CORS Middleware](https://expressjs.com/en/resources/middleware/cors.html)  
 - [GeeksforGeeks: Handling Form Data in Express](https://www.geeksforgeeks.org/node-js/how-to-handle-form-data-in-express/)  
 - [GeeksforGeeks: How HTTP POST Requests Work in Node.js](https://www.geeksforgeeks.org/node-js/how-http-post-request-work-in-node-js/)  
-- https://www.geeksforgeeks.org/node-js/how-to-fix-referenceerror-dirname-is-not-defined-in-es-module-scope-in-javascript/
-- https://www.digitalocean.com/community/tutorials/use-expressjs-to-deliver-html-files
-- https://www.warp.dev/terminus/docker-compose-env-file
-- https://httpd.apache.org/docs/2.4/vhosts/examples.html
+- [GeeksforGeeks: Fix __dirname Not Defined Error](https://www.geeksforgeeks.org/node-js/how-to-fix-referenceerror-dirname-is-not-defined-in-es-module-scope-in-javascript/)  
+- [DigitalOcean: Serve HTML with Express.js](https://www.digitalocean.com/community/tutorials/use-expressjs-to-deliver-html-files)  
+- [Warp: Docker Compose .env Guide](https://www.warp.dev/terminus/docker-compose-env-file)  
+- [Apache HTTPD VirtualHost Examples](https://httpd.apache.org/docs/2.4/vhosts/examples.html)
 
 ---
 
-## 🚧 Project Status
+## 🚀 Project Status
 
-The project is **actively under development**.  
-The **backend and frontend chat interface** are now functional — enabling real-time question-answer interactions.  
-Next up: **document upload from the browser** and improved database integration.
+✅ **Project finalized and fully functional**  
+✅ **Chat** with the bot via the browser  
+✅ **Upload new articles/files** directly through the frontend  
+✅ **ChromaDB integration** complete  
+✅ **Live deployment** on personal webpage  
 
-Stay tuned for updates!
+The system now represents a full end-to-end LLM assistant pipeline — from user input and document ingestion to contextual response generation and real-time interaction.
 
 ---
 
 ## 🤝 Contributing
 
-Contributions, ideas, and discussions are welcome.  
+Contributions, feature ideas, and discussions are always welcome.  
 Open an issue or submit a pull request to collaborate.
 
 ---
