@@ -61,6 +61,8 @@ These references were used throughout the project’s development:
 
 The system now represents a full end-to-end LLM assistant pipeline — from user input and document ingestion to contextual response generation and real-time interaction.
 
+- Next step is to add MCP functionality to the project
+
 ---
 
 ## 🤝 Contributing
