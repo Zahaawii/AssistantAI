@@ -1,8 +1,8 @@
 import { GoogleGenAI, FunctionCallingConfigMode , mcpToTool} from '@google/genai';
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
-import { MCPClient } from "mcp-client";
+import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
 
-const client = new MCPClient(
+const client = new Client(
   {
     name: "example-client",
     version: "1.0.0"
@@ -10,24 +10,19 @@ const client = new MCPClient(
 );
 
 // Configure the client
-const ai = new GoogleGenAI({});
+const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY });
 
-// Initialize the connection between client and server
-await client.connect(
-
-    {
-    type: "httpStream",
-    url: "http://localhost:8080/mcp"
-    }
+const transport = new StreamableHTTPClientTransport(
+  new URL(`http://localhost:8080/mcp`),
 );
 
-const tools = await client.getAllTools();
-console.log(tools);
+// Initialize the connection between client and server
+await client.connect(transport);
 
 // Send request to the model with MCP tools
 const response = await ai.models.generateContent({
   model: "gemini-2.5-flash",
-  contents: `Get all blog post from test using the mcp client - if you cannot connect to the mcp, then just answer with no`,
+  contents: `show me all blog post made by Author "test"?`,
   config: {
     tools: [mcpToTool(client)],  // uses the session, will automatically call the tool
     // Uncomment if you **don't** want the sdk to automatically call the tool

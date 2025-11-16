@@ -49,6 +49,12 @@ These references were used throughout the project’s development:
 - [Warp: Docker Compose .env Guide](https://www.warp.dev/terminus/docker-compose-env-file)  
 - [Apache HTTPD VirtualHost Examples](https://httpd.apache.org/docs/2.4/vhosts/examples.html)
 
+
+##MCP chapter:
+
+- https://github.com/punkpeye/fastmcp
+- https://github.com/punkpeye/mcp-client?tab=readme-ov-file
+
 ---
 
 ## 🚀 Project Status
