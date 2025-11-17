@@ -93,7 +93,6 @@ const transport = new StreamableHTTPClientTransport(
 
 // Initialize the connection between client and server
 await mcpClient.connect(transport);
-await mcpClient.setLoggingLevel("debug");
 
 /*
 =======================================
@@ -209,7 +208,7 @@ app.post('/api/question', async (req, res, next) => {
                 • You may write a full article,
                 • But only using information found in MCP or vector results relevant to the topic.
                 • The article must be well-written, structured, and formatted — not a plaintext copy of the stored data.
-                
+
                 Goal
                 Act as a controlled, retrieval-grounded assistant.
                 For business questions, you must rely strictly on MCP tools and stored knowledge, but present the answers cleanly and professionally.
