@@ -94,6 +94,7 @@ form?.addEventListener("submit", async (e) => {
         chatWindow.scrollTop = chatWindow.scrollHeight;
     } catch (err) {
         userMsg.textContent = "There has been a problem with reaching the server. Try again later";
+        botMsg.style.display = "none";
     }
 })
 
