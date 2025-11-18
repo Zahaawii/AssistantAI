@@ -227,7 +227,11 @@ app.post('/api/question', async (req, res, next) => {
     logging("You are in the error catch now: ");
     logging(err);
     console.error(err);
-    res.send("There has been an error, try again later");
+    if(err.message.includes("The model is overloaded")) {
+    res.send("The model is overloaded, please wait a couple of seconds");
+    } else if(err.message.includes("You exceeded your current quota")) {
+    res.send("You exceeded your current quota, please wait a minute to refresh the quota");
+    }
   }
 });
 
