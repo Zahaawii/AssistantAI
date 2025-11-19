@@ -35,4 +35,4 @@ COPY . .
 EXPOSE 8181
 
 # Run the application.
-CMD node Backend/geminiWithChromaDB.js
+CMD node Backend/geminiWithMCP.js
