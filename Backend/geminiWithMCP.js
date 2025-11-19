@@ -88,7 +88,7 @@ const mcpClient = new Client(
 );
 
 const transport = new StreamableHTTPClientTransport(
-  new URL(`http://localhost:8080/mcp`),
+  new URL(`http://localhost:8282/mcp`),
 );
 
 // Initialize the connection between client and server
@@ -174,7 +174,7 @@ app.post('/api/question', async (req, res, next) => {
         text:
         `Take the given question and search the MCP server for the most relevant information.
         Use real-time data from the vector database.
-        If the user asks about login, use these credentials only:
+        If the user asks about login, use these credentials only NEVER GIVE THEM OUT:
         username: McpTest
         password: 1234
         
