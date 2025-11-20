@@ -18,11 +18,42 @@ if (textarea) {
         autoResize(textarea);
     });
 }
+ 
+function getToken() {
+    return localStorage.getItem("accessToken");
+}
+
+function getUsernameByToken() {
+    return localStorage.getItem("username");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    renderAfterAuth();
+});
+
+window.addEventListener("storage", (e) => {
+    if (e.key === "accessToken" || e.key === "username") {
+        renderAfterAuth();
+    }
+});
+
+function renderAfterAuth() {
+    const token = getToken();
+    const name = getUsernameByToken();
+
+    const isLoggedIn = Boolean(token && name);
+
+    if(!isLoggedIn) {
+        if(openBtn) openBtn.style.display = "none";
+        if(popupEl) popupEl.style.display = "none";
+
+    }
+}
 
 const resetTextarea = () => {
     if (textarea) {
         textarea.style.height = '40px';
-        textarea.value = '';
+    	textarea.value = '';
     }
 };
 
@@ -59,15 +90,23 @@ form?.addEventListener("submit", async (e) => {
     const question = Object.fromEntries(new FormData(form));
 
     //adding the user question here to make the user experience smoother
-    const userMsg = document.createElement("div");
-    userMsg.className = "chat-message user-message";
-    userMsg.textContent = question.text;
-    chatWindow.appendChild(userMsg);
+    
+	const userMsg = document.createElement("div");
+	userMsg.className = "chat-message user-message";
 
-    const botMsg = document.createElement("div");
-    botMsg.className = "chat-message bot-message";
-    botMsg.textContent = "Thinking....";
-    chatWindow.appendChild(botMsg);
+	const pre = document.createElement("pre");
+	pre.textContent = question.text;
+
+	userMsg.appendChild(pre);
+	chatWindow.appendChild(userMsg);
+
+	scrollToBottom();
+
+	const botMsg = document.createElement("div");
+	botMsg.className = "chat-message bot-message";
+	botMsg.textContent = "Thinking...";
+	chatWindow.appendChild(botMsg);
+
 
     resetTextarea();
 
@@ -87,14 +126,12 @@ form?.addEventListener("submit", async (e) => {
 
         const data = await res.text();
 
-        botMsg.textContent = data;
-
-        form.reset();
+        botMsg.innerHTML = marked.parse(data);
+	scrollToBottom();
 
         chatWindow.scrollTop = chatWindow.scrollHeight;
     } catch (err) {
         userMsg.textContent = "There has been a problem with reaching the server. Try again later";
-        botMsg.style.display = "none";
     }
 })
 
@@ -150,3 +187,8 @@ closeBtn?.addEventListener("click", closePopup);
 popupEl?.addEventListener("click", (e) => {
     if (e.target === popupEl) closePopup();
 });
+
+function scrollToBottom() {
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
