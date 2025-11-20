@@ -18,7 +18,7 @@ const client = new Client(
 const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY });
 
 const transport = new StreamableHTTPClientTransport(
-  new URL(`http://localhost:8080/mcp`),
+  new URL(`/mcp`),
 );
 
 // Initialize the connection between client and server
@@ -88,7 +88,7 @@ const mcpClient = new Client(
 );
 
 const transport = new StreamableHTTPClientTransport(
-  new URL(`http://localhost:8282/mcp`),
+  new URL(`http://mcp.zaak.dk/mcp`),
 );
 
 // Initialize the connection between client and server
