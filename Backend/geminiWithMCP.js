@@ -88,7 +88,7 @@ const mcpClient = new Client(
 );
 
 const transport = new StreamableHTTPClientTransport(
-  new URL(`http://mcp.zaak.dk/mcp`),
+  new URL(`https://mcp.zaak.dk/mcp`),
 );
 
 // Initialize the connection between client and server
